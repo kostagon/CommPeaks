@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { removeOuterBrackets } from '../services/util.service'
 
-const ConversationInput = ({ onSend, variables }) => {
+function ConversationInput({ onSend, variables }) {
     const ref = useRef()
     const [selectedVars, setSelectedVars] = useState([])
 

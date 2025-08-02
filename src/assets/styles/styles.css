@@ -9,6 +9,7 @@
 
 /* COMPONENTS  */
 @import url('./components/searchbar.css');
+@import url('./components/contact-list.css');
 @import url('./components/contact-preview.css');
 @import url('./components/conversation-details.css');
 @import url('./components/conversation-input.css');

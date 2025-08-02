@@ -1,22 +1,21 @@
 import React from 'react'
-import { Avatar } from './Avatar'
-import { getInitials } from '../services/util.service'
+import Avatar from './Avatar'
 import { formatIsoDateToLocaleDate } from '../services/util.service'
 
-export default function ContactPreview({ contact }) {
+function ContactPreview({ contact }) {
     const { msgs, full_name } = contact
-    const lastMsgAt = formatIsoDateToLocaleDate(msgs[msgs.length - 1].timestamp)
-    const initials = getInitials(full_name)
-    console.log({ lastMsgAt })
+    const lastMsg = formatIsoDateToLocaleDate(msgs[msgs.length - 1].timestamp)
 
     return (
         <div className="contact-preview grid">
-            <Avatar initials={initials} />
+            <Avatar fullName={full_name} />
             <div className="flex space-between align-center">
                 <div className="bold">{full_name}</div>
-                <div>{lastMsgAt}</div>
+                <div>{lastMsg}</div>
             </div>
             <div className="contact-preview-msg">{msgs[msgs.length - 1].text}</div>
         </div>
     )
 }
+
+export default ContactPreview

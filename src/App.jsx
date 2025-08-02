@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { ContactList } from './components/ContactList'
-import { ConversationDetails } from './components/ConversationDetails'
-import { Searchbar } from './components/Searchbar'
+import ContactList from './components/ContactList'
+import ConversationDetails from './components/ConversationDetails'
+import Searchbar from './components/Searchbar'
 import initContacts from './data/contacts.json'
 import conversations from './data/conversations.json'
+import ConversationHeader from './components/ConversationHeader'
 
 
 
@@ -31,11 +32,13 @@ function App() {
 
   return (
     <div className="main-layout">
-      <div className="left-panel">
-        <Searchbar />
-        {contacts.length && <ContactList contacts={contacts} />}
-      </div>
+      <Searchbar />
+      {contacts.length && <ContactList contacts={contacts} />}
+
+
+      {selectedContact && <ConversationHeader fullName={selectedContact.full_name} />}
       {selectedContact && <ConversationDetails contact={selectedContact} />}
+
       {/* <h1>Welcome to the App</h1>
       <ContactList contacts={contacts} /> */}
     </div>

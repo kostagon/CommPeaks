@@ -1,7 +1,8 @@
 import React from 'react'
 import ConversationInput from './ConversationInput'
-
-export const ConversationDetails = ({ contact }) => {
+import MsgsByDate from './MsgsByDate'
+import Avatar from './Avatar'
+function ConversationDetails({ contact }) {
 
     const getVariables = () => {
         let variables = { ...contact }
@@ -25,34 +26,14 @@ export const ConversationDetails = ({ contact }) => {
     const groupedMsgsByDate = groupMessagesByDate(contact.msgs)
     return (
         <div className="conversation-container">
-            <div className="messages-wrapper">
-                {Object.entries(groupedMsgsByDate).map(([date, msgs]) => (
-                    <div key={date}>
-                        <div className="date-separator">
-                            <span className="date-label">{date}</span>
-                        </div>
-                        {msgs.map((msg, idx) => {
-                            const isMe = msg.sender === 'me'
-
-                            return (
-                                <div
-                                    key={'' + msg.phone + idx}
-                                    className={`message-row ${isMe ? 'me' : 'other'}`}
-                                >
-                                    <div className="message-bubble">
-                                        {msg.text}
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                ))}
-            </div>
+            <MsgsByDate msgsByDate={groupedMsgsByDate} />
             <ConversationInput onSend={() => {
                 console.log('On send conversationInput')
+                // TODO
             }} variables={getVariables()} />
-        </div>
+        </div >
     )
 }
 
 
+export default ConversationDetails

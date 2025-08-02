@@ -1,6 +1,8 @@
 import React from 'react'
+import { getInitials } from '../services/util.service'
 
-export const Avatar = ({ initials }) => {
+function Avatar({ fullName }) {
+    const initials = getInitials(fullName)
     return (
         <div
             className="avatar full"
@@ -22,3 +24,5 @@ export const Avatar = ({ initials }) => {
         </div>
     )
 }
+
+export default Avatar
