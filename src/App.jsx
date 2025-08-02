@@ -18,6 +18,12 @@ function App() {
     setSelectedContact(contactsData[0])
   }, [])
 
+  function onSelectContact(contact) {
+    // check if prevContact has diff phone
+    if (selectedContact.phone === contact.phone) return
+    setSelectedContact(contact)
+  }
+
   function contactsWithMsgs() {
     return initContacts.reduce((acc, contact) => {
       // find the conversation via contact.phone
@@ -33,7 +39,7 @@ function App() {
   return (
     <div className="main-layout">
       <Searchbar />
-      {contacts.length && <ContactList contacts={contacts} />}
+      {contacts.length && <ContactList onSelectContact={onSelectContact} contacts={contacts} />}
 
 
       {selectedContact && <ConversationHeader fullName={selectedContact.full_name} />}
