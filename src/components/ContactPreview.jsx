@@ -1,11 +1,11 @@
 import React from 'react'
 import { Avatar } from './Avatar'
 import { getInitials } from '../services/util.service'
-import { formatDate } from '../services/util.service'
+import { formatIsoDateToLocaleDate } from '../services/util.service'
 
 export default function ContactPreview({ contact }) {
-    const { first_name, last_name, msgs, full_name } = contact
-    const lastMsgAt = formatDate(msgs[msgs.length - 1].timestamp)
+    const { msgs, full_name } = contact
+    const lastMsgAt = formatIsoDateToLocaleDate(msgs[msgs.length - 1].timestamp)
     const initials = getInitials(full_name)
     console.log({ lastMsgAt })
 

@@ -6,7 +6,7 @@ export function getInitials(name) {
     return parts.map(p => p[0]).join('').toUpperCase()
 }
 
-export function formatDate(isoString) {
+export function formatIsoDateToLocaleDate(isoString) {
     const inputDate = new Date(isoString)
     const now = new Date()
 
@@ -29,4 +29,16 @@ export function formatDate(isoString) {
         // Show DD/MM/YY
         return inputDate.toLocaleDateString('en-GB') // DD/MM/YYYY
     }
+}
+
+export function formatDate(date) {
+    const inputDate = new Date(date)
+    return inputDate.toLocaleDateString('en-GB')
+}
+
+export function removeOuterBrackets(str) {
+    if (str.startsWith('[') && str.endsWith(']')) {
+        return str.slice(1, -1)
+    }
+    return str
 }

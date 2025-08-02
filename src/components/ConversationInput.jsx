@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { removeOuterBrackets } from '../services/util.service'
 
 const ConversationInput = ({ onSend, variables }) => {
     const ref = useRef()
@@ -69,16 +70,8 @@ const ConversationInput = ({ onSend, variables }) => {
         setSelectedVars(currentTokens)
     }
 
-    const removeOuterBrackets = (str) => {
-        if (str.startsWith('[') && str.endsWith(']')) {
-            return str.slice(1, -1)
-        }
-        return str
-    }
-
-
     return (
-        <div className="conversation-input-wrapper">
+        <div className="conversation-input-container">
             <div
                 ref={ref}
                 className="conversation-input"

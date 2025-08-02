@@ -1,5 +1,5 @@
 
-.conversation-input-wrapper {
+.conversation-input-container {
   display: flex;
   flex-direction: column;
   gap: 10px;

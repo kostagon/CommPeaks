@@ -44,3 +44,27 @@
 .message-row.other .message-bubble {
   background-color: var(--color-bg-msg-secondary);
 }
+
+/* Date Separator */
+
+.date-separator {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  position: relative;
+}
+
+.date-separator::before,
+.date-separator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.date-label {
+  padding: 0 10px;
+  color: #888;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
