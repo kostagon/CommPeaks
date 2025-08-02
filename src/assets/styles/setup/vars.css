@@ -1,0 +1,16 @@
+:root {
+--color-primary: #0066FF; /* Primary (buttons, highlights) */
+--color-text: #1E254F; /* Main text */
+--color-divider: #CBD5E0; /* Borders, separators */
+--color-placeholder: #3D466E; /* Placeholder text */
+--color-bg: #FFFFFF; /* Background */
+--color-active: #E5F1FF; /* Active conversation, outgoing message */
+--color-muted: #718096; /* Timestamps, secondary text */
+--color-incoming: #F2F6F9; /* Incoming message background */
+--color-site-border: #f3f3f3;
+--color-bg-msg-primary: #e7f0fe;
+--color-bg-msg-secondary: #f3f6f9;
+--border-radius-sm: 8px;
+--border-radius-md: 12px;
+--border-radius-lg: 20px;
+}

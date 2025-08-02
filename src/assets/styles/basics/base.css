@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color: var(--color-text);
+    line-height: 1.25;
+    font-family: lato-regular, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 1em;
+    text-transform: uppercase;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
