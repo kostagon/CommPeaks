@@ -1,6 +1,11 @@
+import React, { useEffect, useRef } from 'react'
 import MsgBubble from "./MsgBubble";
 
 function MsgsByDate({ msgsByDate }) {
+    const endOfMessagesRef = useRef()
+    useEffect(() => {
+        endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }, [msgsByDate])
     return (
         <div className="messages-wrapper">
             {
@@ -22,6 +27,7 @@ function MsgsByDate({ msgsByDate }) {
                     </div>
                 ))
             }
+            <div ref={endOfMessagesRef} />
         </div>
     );
 }
