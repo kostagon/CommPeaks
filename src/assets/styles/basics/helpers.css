@@ -14,10 +14,13 @@
     justify-content: center;
 }
 
-.clean-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex-end {
+    align-self: flex-end;
 }
 
 .grid {
@@ -26,4 +29,22 @@
 
 .bold { 
     font-weight: bold;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gap-1 {
+    gap: 5px;
+}
+
+.gap-2 {
+    gap: 10px;
+}
+
+.gap-3 {
+    gap: 15px;
 }

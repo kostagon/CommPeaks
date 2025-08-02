@@ -3,3 +3,7 @@
     grid-column: 1/2;
     border-right: 1px solid var(--color-divider)
 }
+
+.conversations-amount {
+    padding: 1em 1.7em .5em;
+}

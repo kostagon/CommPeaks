@@ -36,6 +36,13 @@ export function formatDate(date) {
     return inputDate.toLocaleDateString('en-GB')
 }
 
+export function formatDateTo24HourMode(isoString) {
+    const date = new Date(isoString)
+    const hours = date.getHours().toString().padStart(2, '0')
+    const minutes = date.getMinutes().toString().padStart(2, '0')
+    return `${hours}:${minutes}`
+}
+
 export function removeOuterBrackets(str) {
     if (str.startsWith('[') && str.endsWith(']')) {
         return str.slice(1, -1)

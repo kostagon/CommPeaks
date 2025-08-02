@@ -18,12 +18,6 @@ function App() {
     setSelectedContact(contactsData[0])
   }, [])
 
-  function onSelectContact(contact) {
-    // check if prevContact has diff phone
-    if (selectedContact.phone === contact.phone) return
-    setSelectedContact(contact)
-  }
-
   function contactsWithMsgs() {
     return initContacts.reduce((acc, contact) => {
       // find the conversation via contact.phone
@@ -36,17 +30,34 @@ function App() {
     }, [])
   }
 
+  function onSelectContact(contact) {
+    if (selectedContact.phone === contact.phone) return
+    setSelectedContact(contact)
+  }
+
+  function onSearch(searchStr) {
+    const lowered = searchStr.toLowerCase()
+    const contactsCopy = contactsWithMsgs()
+
+    const filtered = contactsCopy.filter(contact =>
+      contact.first_name?.toLowerCase().includes(lowered) ||
+      contact.phone?.toString().includes(searchStr) ||
+      contact.last_name?.toLowerCase().includes(lowered)
+    )
+
+    setContacts(filtered)
+  }
+
+
+
+
+
   return (
     <div className="main-layout">
-      <Searchbar />
+      <Searchbar onSearch={onSearch} />
       {contacts.length && <ContactList onSelectContact={onSelectContact} contacts={contacts} />}
-
-
       {selectedContact && <ConversationHeader fullName={selectedContact.full_name} />}
       {selectedContact && <ConversationDetails contact={selectedContact} />}
-
-      {/* <h1>Welcome to the App</h1>
-      <ContactList contacts={contacts} /> */}
     </div>
   )
 }
