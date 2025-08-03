@@ -10,12 +10,12 @@
     grid-row: 1 / -1;
 }
 
-.contact-preview:hover {
-    background-color: var(--color-bg-msg-primary);
-    border-radius: 12px;
-}
-
 .contact-preview-msg {
     color: var(--color-muted);
     font-size: .9em;
+}
+
+.highlighted {
+    background-color: var(--color-bg-msg-primary);
+    border-radius: 12px;
 }

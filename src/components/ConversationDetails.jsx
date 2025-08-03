@@ -1,15 +1,15 @@
 import React from 'react'
 import ConversationInput from './ConversationInput'
 import MsgsByDate from './MsgsByDate'
-import Avatar from './Avatar'
-function ConversationDetails({ contact }) {
 
+function ConversationDetails({ contact }) {
     const getVariables = () => {
         let variables = { ...contact }
         delete variables.msgs
         delete variables.full_name
         return variables
     }
+
 
     const groupMessagesByDate = (msgs) => {
         const groups = {}
@@ -27,10 +27,11 @@ function ConversationDetails({ contact }) {
     return (
         <div className="conversation-container">
             <MsgsByDate msgsByDate={groupedMsgsByDate} />
-            <ConversationInput onSend={() => {
-                console.log('On send conversationInput')
-                // TODO
-            }} variables={getVariables()} />
+            <ConversationInput
+                onSend={() => {
+                    console.log('On send conversationInput')
+                    // TODO
+                }} variables={getVariables()} />
         </div >
     )
 }
