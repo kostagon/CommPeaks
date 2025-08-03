@@ -4,7 +4,7 @@ import MsgBubble from "./MsgBubble";
 function MsgsByDate({ msgsByDate }) {
     const endOfMessagesRef = useRef()
     useEffect(() => {
-        endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' })
+        endOfMessagesRef.current?.scrollIntoView()
     }, [msgsByDate])
     return (
         <div className="messages-wrapper">
