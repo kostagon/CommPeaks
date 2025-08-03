@@ -49,15 +49,35 @@ function App() {
   }
 
 
+  function onAddMsg(txt) {
+    // In order for the app to be Ephemeral, I have to update both of the states.
 
+    let newMsg = {
+      timestamp: new Date().toISOString(),
+      sender: 'me',
+      text: txt.trim()
+    }
 
+    setSelectedContact(prevState => ({
+      ...prevState,
+      msgs: [...prevState.msgs, newMsg]
+    }))
+
+    setContacts(prevContacts => (
+      prevContacts.map(contact =>
+        contact.phone === selectedContact.phone
+          ? { ...contact, msgs: [...contact.msgs, newMsg] }
+          : contact
+      )))
+
+  }
 
   return (
     <div className="main-layout">
       <Searchbar onSearch={onSearch} />
       {contacts.length && <ContactList onSelectContact={onSelectContact} contacts={contacts} selectedContact={selectedContact} />}
       {selectedContact && <ConversationHeader fullName={selectedContact.full_name} />}
-      {selectedContact && <ConversationDetails contact={selectedContact} />}
+      {selectedContact && <ConversationDetails contact={selectedContact} onAddMsg={onAddMsg} />}
     </div>
   )
 }

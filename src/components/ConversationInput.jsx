@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { removeOuterBrackets } from '../services/util.service'
 
-function ConversationInput({ onSend, variables }) {
+function ConversationInput({ onAddMsg, variables }) {
     const ref = useRef()
     const [selectedVars, setSelectedVars] = useState([])
 
@@ -57,7 +57,7 @@ function ConversationInput({ onSend, variables }) {
         }).join('')
         console.log(finalText)
 
-        onSend(finalText.trim())
+        onAddMsg(finalText.trim())
         ref.current.innerHTML = ''
         setSelectedVars([])
     }

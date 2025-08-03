@@ -2,7 +2,7 @@ import React from 'react'
 import ConversationInput from './ConversationInput'
 import MsgsByDate from './MsgsByDate'
 
-function ConversationDetails({ contact }) {
+function ConversationDetails({ contact, onAddMsg }) {
     const getVariables = () => {
         let variables = { ...contact }
         delete variables.msgs
@@ -28,10 +28,7 @@ function ConversationDetails({ contact }) {
         <div className="conversation-container">
             <MsgsByDate msgsByDate={groupedMsgsByDate} />
             <ConversationInput
-                onSend={() => {
-                    console.log('On send conversationInput')
-                    // TODO
-                }} variables={getVariables()} />
+                onAddMsg={onAddMsg} variables={getVariables()} />
         </div >
     )
 }
