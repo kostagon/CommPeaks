@@ -75,7 +75,7 @@ function App() {
   return (
     <div className="main-layout">
       <Searchbar onSearch={onSearch} />
-      {contacts.length && <ContactList onSelectContact={onSelectContact} contacts={contacts} selectedContact={selectedContact} />}
+      <ContactList onSelectContact={onSelectContact} contacts={contacts} selectedContact={selectedContact} />
       {selectedContact && <ConversationHeader fullName={selectedContact.full_name} />}
       {selectedContact && <ConversationDetails contact={selectedContact} onAddMsg={onAddMsg} />}
     </div>
