@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { removeOuterBrackets } from '../services/util.service'
+import { SendButton } from './SendBtn'
 
 function ConversationInput({ onAddMsg, variables }) {
     const ref = useRef()
@@ -62,6 +63,13 @@ function ConversationInput({ onAddMsg, variables }) {
         setSelectedVars(currentTokens)
     }
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault() // מונע ירידת שורה
+            handleSend()
+        }
+    }
+
     return (
         <div className="conversation-input-container">
             <div
@@ -70,6 +78,7 @@ function ConversationInput({ onAddMsg, variables }) {
                 contentEditable
                 placeholder="Write something..."
                 onInput={handleInput}
+                onKeyDown={handleKeyDown}
             />
             <div className="flex space-between">
                 <div className="var-buttons">
@@ -81,7 +90,7 @@ function ConversationInput({ onAddMsg, variables }) {
                         </button>
                     ))}
                 </div>
-                <button className="send-button" onClick={handleSend}>Send</button>
+                <button className="send-button" onClick={handleSend}><SendButton /></button>
             </div>
         </div>
     )

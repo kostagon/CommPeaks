@@ -45,9 +45,9 @@
 
 .send-button {
   align-self: flex-end;
-  padding: 6px 12px;
+  padding: 6px 10px;
   border: none;
-  background-color: #0b5ed7;
+  background-color: var(--color-primary);
   color: white;
   border-radius: 4px;
   cursor: pointer;
