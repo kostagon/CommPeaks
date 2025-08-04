@@ -7,8 +7,6 @@ import ConversationDetails from './components/ConversationDetails'
 import Searchbar from './components/Searchbar'
 import ConversationHeader from './components/ConversationHeader'
 
-
-
 function App() {
   const [contacts, setContacts] = useState([])
   const [selectedContact, setSelectedContact] = useState(null)
