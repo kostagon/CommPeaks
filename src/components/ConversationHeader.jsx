@@ -1,11 +1,11 @@
 import React from 'react'
 import Avatar from './Avatar'
-function ConversationHeader({ fullName }) {
 
+function ConversationHeader({ fullName }) {
     return (
-        <div className="conversation-header blahhh flex align-center justify-center">
+        <div className="conversation-header flex align-center justify-center">
             <Avatar fullName={fullName} />
-            <span>
+            <span className="bold">
                 {fullName}
             </span>
         </div>

@@ -2,21 +2,24 @@ import React, { useEffect, useRef } from 'react'
 import MsgBubble from "./MsgBubble";
 
 function MsgsByDate({ msgsByDate }) {
-    const endOfMessagesRef = useRef()
+    const endOfMessagesRef = useRef() // Required for instant scroll to the bottom of the conversation
+
     useEffect(() => {
         endOfMessagesRef.current?.scrollIntoView()
     }, [msgsByDate])
+
     return (
-        <div className="messages-wrapper">
+        <div className="messages-container">
             {
-                Object.entries(msgsByDate).map(([date, messages]) => (
+                Object.entries(msgsByDate).map(([date, msgs]) => (
+                    // Separating the messages by date
                     <div key={date}>
                         <div className="date-separator">
                             <span className="date-label">
                                 {date}
                             </span>
                         </div>
-                        {messages.map((msg, idx) => (
+                        {msgs.map((msg, idx) => (
                             <MsgBubble
                                 key={`${msg.phone}-${idx}`}
                                 message={msg}

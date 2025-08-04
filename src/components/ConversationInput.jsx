@@ -19,14 +19,12 @@ function ConversationInput({ onAddMsg, variables }) {
         span.dataset.var = `[${key}]`
         span.style.whiteSpace = "nowrap"
 
-        // רווח אחרי המשתנה
-        const space = document.createTextNode('\u00A0')
+        const space = document.createTextNode('\u00A0') // Space after variable
 
         range.deleteContents()
         range.insertNode(space)
         range.insertNode(span)
 
-        // מיקום הסמן אחרי הרווח
         range.setStartAfter(space)
         range.collapse(true)
         selection.removeAllRanges()
@@ -42,20 +40,14 @@ function ConversationInput({ onAddMsg, variables }) {
 
         const finalText = nodes.map(node => {
             if (node.nodeType === Node.TEXT_NODE) {
-                console.log('got into if')
                 return node.textContent
             } else if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('token')) {
-                console.log('got into else if')
                 const varName = removeOuterBrackets(node.dataset.var)
-                // remove sograim
-                console.log(varName)
-
                 return variables[varName] || varName
             } else {
                 return ''
             }
         }).join('')
-        console.log(finalText)
 
         onAddMsg(finalText.trim())
         ref.current.innerHTML = ''

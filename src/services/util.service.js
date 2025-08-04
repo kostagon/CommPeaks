@@ -26,8 +26,7 @@ export function formatIsoDateToLocaleDate(isoString) {
     } else if (diffDays <= 5) {
         return 'a few days ago'
     } else {
-        // Show DD/MM/YY
-        return inputDate.toLocaleDateString('en-GB') // DD/MM/YYYY
+        return inputDate.toLocaleDateString('en-GB') // Show DD/MM/YY
     }
 }
 

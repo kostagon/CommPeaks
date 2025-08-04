@@ -6,24 +6,23 @@ function ConversationDetails({ contact, onAddMsg }) {
     const getVariables = () => {
         let variables = { ...contact }
         delete variables.msgs
-        delete variables.full_name
+        delete variables.fullName
         return variables
     }
 
-
-    const groupMessagesByDate = (msgs) => {
+    const groupMsgsByDate = (msgs) => {
         const groups = {}
 
         msgs.forEach((msg) => {
             const date = new Date(msg.timestamp).toLocaleDateString('en-GB')
             if (!groups[date]) groups[date] = []
             groups[date].push(msg)
-        });
+        })
 
-        return groups;
-    };
+        return groups
+    }
 
-    const groupedMsgsByDate = groupMessagesByDate(contact.msgs)
+    const groupedMsgsByDate = groupMsgsByDate(contact.msgs)
     return (
         <div className="conversation-container">
             <MsgsByDate msgsByDate={groupedMsgsByDate} />
